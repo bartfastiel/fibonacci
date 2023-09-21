@@ -9,13 +9,9 @@ public class Main {
         if (index == 0) {
             return 0;
         }
-        int previousNumber = 0;
-        int currentNumber = 1;
-        for (int i = 0; i < index-1; i++) {
-            int sum = previousNumber + currentNumber;
-            previousNumber = currentNumber;
-            currentNumber = sum;
+        if (index == 1) {
+            return 1;
         }
-        return currentNumber;
+        return fibonacci(index-1) + fibonacci(index - 2);
     }
 }
