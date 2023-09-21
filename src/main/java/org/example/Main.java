@@ -6,6 +6,9 @@ public class Main {
     }
 
     public static int fibonacci(int index) {
-        return 0;
+        if (index == 0) {
+            return 0;
+        }
+        return 1;
     }
 }
