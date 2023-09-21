@@ -9,6 +9,13 @@ public class Main {
         if (index == 0) {
             return 0;
         }
-        return 1;
+        int previousNumber = 0;
+        int currentNumber = 1;
+        for (int i = 0; i < index-1; i++) {
+            int sum = previousNumber + currentNumber;
+            previousNumber = currentNumber;
+            currentNumber = sum;
+        }
+        return currentNumber;
     }
 }

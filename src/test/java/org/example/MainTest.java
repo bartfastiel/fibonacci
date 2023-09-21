@@ -1,24 +1,26 @@
 package org.example;
 
-import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class MainTest {
 
-    @Test
-    void expect0_whenCalculatingFibonacciIndex0() {
-        int index = 0;
+    @ParameterizedTest
+    @CsvSource(delimiter = '=', value = {
+            "0=0",
+            "1=1",
+            "2=1",
+            "3=2",
+            "4=3",
+            "5=5",
+            "6=8",
+            "7=13",
+            "20=6765"
+    })
+    void expectInt_whenCalculatingFibonacci(int index, int expected) {
         int actual = Main.fibonacci(index);
-        int expected = 0;
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    void expect1_whenCalculatingFibonacciIndex1() {
-        int index = 1;
-        int actual = Main.fibonacci(index);
-        int expected = 1;
         assertEquals(expected, actual);
     }
 }
